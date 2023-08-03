@@ -1,2 +1,4 @@
-package com.bankapp.model;public class Customer {
+package com.bankapp.model;
+
+public class Customer {
 }
