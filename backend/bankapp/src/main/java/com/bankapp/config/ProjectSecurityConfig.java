@@ -15,9 +15,10 @@ public class ProjectSecurityConfig {
 
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
+        http.csrf(csrf -> csrf.disable());
         http.authorizeHttpRequests((requests) -> {
             ((AuthorizeHttpRequestsConfigurer.AuthorizedUrl)requests.requestMatchers("/myAccount", "myBalance", "/myCards", "/myLoans")).authenticated();
-            ((AuthorizeHttpRequestsConfigurer.AuthorizedUrl)requests.requestMatchers("/notices", "/contact")).permitAll();
+            ((AuthorizeHttpRequestsConfigurer.AuthorizedUrl)requests.requestMatchers("/notices", "/contact", "/register")).permitAll();
         });
         http.formLogin(Customizer.withDefaults());
         http.httpBasic(Customizer.withDefaults());
@@ -28,5 +29,4 @@ public class ProjectSecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
 }
