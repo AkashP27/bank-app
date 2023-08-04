@@ -1,0 +1,62 @@
+<mat-card>
+  <mat-card-content>
+    <div class="header">
+      <h2>LOGIN</h2>
+    </div>
+    <br />
+    <form
+      [formGroup]="loginForm"
+      (ngSubmit)="onSubmit()"
+      novalidate
+      class="example-form"
+    >
+      <mat-form-field class="example-full-width">
+        <mat-label>Email address</mat-label>
+        <input
+          type="email"
+          matInput
+          formControlName="email"
+          placeholder="Enter Email"
+        />
+        <mat-error
+          *ngIf="loginForm.get('email')?.touched &&
+          loginForm.get('email')?.errors?.['required']
+        "
+        >
+          Please enter email address.!
+        </mat-error>
+
+        <mat-error
+          *ngIf="loginForm.get('email')?.touched &&
+          loginForm.get('email')?.errors?.['email']
+        "
+        >
+          Enter valid email address.!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input
+          type="password"
+          matInput
+          formControlName="password"
+          placeholder="Password"
+        />
+
+        <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
+          Password should be minimum of 6 characters
+        </mat-error>
+      </mat-form-field>
+
+      <button
+        type="submit"
+        mat-raised-button
+        color="accent"
+        [disabled]="!loginForm.valid"
+      >
+        Submit
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

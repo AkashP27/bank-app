@@ -1,0 +1,137 @@
+<mat-grid-list cols="2" rowHeight="1:1" gutterSize="30px">
+  <mat-grid-tile colspan="1" rowspan="1">
+    <div class="content">
+      <div class="cont-top">
+        <span><mat-icon>phone</mat-icon></span>
+        <div class="cont-right">
+          <h6>Call Us</h6>
+          <p><a href="tel:+456 68 925 89">+456 68 925 89</a></p>
+        </div>
+      </div>
+      <div class="cont-top margin-up">
+        <div class="cont-left text-center">
+          <span><mat-icon>email</mat-icon></span>
+        </div>
+        <div class="cont-right">
+          <h6>Email Us</h6>
+          <p>
+            <a href="mailto:support@bank.com" class="mail"
+              >support@eazybank.com</a
+            >
+          </p>
+        </div>
+      </div>
+      <div class="cont-top margin-up">
+        <div class="cont-left text-center">
+          <span><mat-icon>location_on</mat-icon></span>
+        </div>
+        <div class="cont-right">
+          <h6>Address</h6>
+          <p style="color: rgb(139, 19, 139)">
+            123 Main Street, New York, NY 10030
+          </p>
+        </div>
+      </div>
+    </div>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="1" rowspan="1">
+    <mat-card>
+      <mat-card-content>
+        <form
+          [formGroup]="contactForm"
+          (ngSubmit)="onSubmit()"
+          novalidate
+          class="example-form"
+        >
+          <mat-form-field class="example-full-width">
+            <mat-label>Name</mat-label>
+            <input
+              type="text"
+              matInput
+              formControlName="name"
+              placeholder="name"
+            />
+
+            <mat-error
+              *ngIf="contactForm.get('email')?.touched &&
+          contactForm.get('email')?.errors?.['required']
+        "
+            >
+              Please enter your name.!
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Email address</mat-label>
+            <input
+              type="email"
+              matInput
+              formControlName="email"
+              placeholder="Enter Email"
+            />
+            <mat-error
+              *ngIf="contactForm.get('email')?.touched &&
+          contactForm.get('email')?.errors?.['required']
+        "
+            >
+              Please enter email address.!
+            </mat-error>
+
+            <mat-error
+              *ngIf="contactForm.get('email')?.touched &&
+          contactForm.get('email')?.errors?.['email']
+        "
+            >
+              Enter valid email address.!
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Subject</mat-label>
+            <input
+              type="text"
+              matInput
+              formControlName="subject"
+              placeholder="subject"
+            />
+
+            <mat-error
+              *ngIf="contactForm.get('subject')?.touched &&
+          contactForm.get('subject')?.errors?.['required']
+        "
+            >
+              Please fill the subject.!
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Enter your message</mat-label>
+            <textarea
+              matInput
+              rows="5"
+              formControlName="message"
+              placeholder="Enter your message"
+            ></textarea>
+            <mat-error
+              *ngIf="contactForm.get('message')?.touched &&
+          contactForm.get('message')?.errors?.['required']
+        "
+            >
+              Please fill the message.!
+            </mat-error>
+          </mat-form-field>
+
+          <button
+            type="submit"
+            mat-raised-button
+            color="accent"
+            [disabled]="!contactForm.valid"
+          >
+            Submit
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
