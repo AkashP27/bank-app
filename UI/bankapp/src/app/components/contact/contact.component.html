@@ -1,3 +1,5 @@
+<bank-navbar></bank-navbar>
+
 <mat-grid-list cols="2" rowHeight="1:1" gutterSize="30px">
   <mat-grid-tile colspan="1" rowspan="1">
     <div class="content">
@@ -37,6 +39,17 @@
 
   <mat-grid-tile colspan="1" rowspan="1">
     <mat-card>
+      <p
+        *ngIf="contactId"
+        style="
+          margin-bottom: 25px;
+          margin-top: 25px;
+          color: rgb(53, 143, 53);
+          font-weight: bold;
+        "
+      >
+        Your message is submitted. Reference ID is {{ contactId }}
+      </p>
       <mat-card-content>
         <form
           [formGroup]="contactForm"
@@ -49,13 +62,13 @@
             <input
               type="text"
               matInput
-              formControlName="name"
+              formControlName="contactName"
               placeholder="name"
             />
 
             <mat-error
-              *ngIf="contactForm.get('email')?.touched &&
-          contactForm.get('email')?.errors?.['required']
+              *ngIf="contactForm.get('contactName')?.touched &&
+          contactForm.get('contactName')?.errors?.['required']
         "
             >
               Please enter your name.!
@@ -67,20 +80,20 @@
             <input
               type="email"
               matInput
-              formControlName="email"
+              formControlName="contactEmail"
               placeholder="Enter Email"
             />
             <mat-error
-              *ngIf="contactForm.get('email')?.touched &&
-          contactForm.get('email')?.errors?.['required']
+              *ngIf="contactForm.get('contactEmail')?.touched &&
+          contactForm.get('contactEmail')?.errors?.['required']
         "
             >
               Please enter email address.!
             </mat-error>
 
             <mat-error
-              *ngIf="contactForm.get('email')?.touched &&
-          contactForm.get('email')?.errors?.['email']
+              *ngIf="contactForm.get('contactEmail')?.touched &&
+          contactForm.get('contactEmail')?.errors?.['email']
         "
             >
               Enter valid email address.!

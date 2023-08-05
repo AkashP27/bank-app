@@ -17,6 +17,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { NoticesComponent } from './components/notices/notices.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { RequestInterceptor } from 'src/app/interceptors/request.interceptor';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +30,14 @@ import { NoticesComponent } from './components/notices/notices.component';
     LoginComponent,
     ContactComponent,
     NoticesComponent,
+    DashboardComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
@@ -40,7 +47,13 @@ import { NoticesComponent } from './components/notices/notices.component';
     MatCardModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

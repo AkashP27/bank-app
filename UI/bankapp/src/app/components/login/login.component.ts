@@ -5,6 +5,10 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login/login.service';
+import { User } from 'src/app/model/user.model';
+import { getCookie } from 'typescript-cookie';
 
 @Component({
   selector: 'bank-login',
@@ -14,7 +18,13 @@ import {
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  userModel = new User();
+
+  constructor(
+    private fb: FormBuilder,
+    private loginService: LoginService,
+    private router: Router
+  ) {}
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -26,11 +36,13 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.loginForm.valid) {
-      console.log(this._v());
-    }
-  }
-  _v() {
-    return this.loginForm.value;
+    this.loginService.login(this.loginForm.value).subscribe((data: any) => {
+      this.userModel = data.body;
+      let xsrf = getCookie('XSRF-TOKEN')!;
+      window.sessionStorage.setItem('XSRF-TOKEN', xsrf);
+      this.userModel.authStatus = 'AUTH';
+      window.sessionStorage.setItem('user', JSON.stringify(this.userModel));
+      this.router.navigate(['dashboard']);
+    });
   }
 }
