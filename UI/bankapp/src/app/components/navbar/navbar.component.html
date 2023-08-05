@@ -3,10 +3,53 @@
 
   <div class="space"></div>
   <div class="right">
-    <a mat-button routerLink="home">HOME</a>
-    <a mat-button routerLink="contact">CONTACT US</a>
-    <a mat-button routerLink="notices">NOTICES</a>
-    <a mat-raised-button color="accent" routerLink="login">LOGIN</a>
+    <span *ngIf="user.authStatus != 'AUTH'">
+      <a mat-button routerLink="/home" routerLinkActive="active">HOME</a>
+    </span>
+
+    <a
+      *ngIf="user.authStatus != 'AUTH'"
+      mat-button
+      routerLink="/contact"
+      routerLinkActive="active"
+      >CONTACT US</a
+    >
+
+    <a
+      *ngIf="user.authStatus != 'AUTH'"
+      mat-button
+      routerLink="/notices"
+      routerLinkActive="active"
+      >NOTICES</a
+    >
+
+    <span *ngIf="user.authStatus != 'AUTH'">
+      <a
+        mat-raised-button
+        color="accent"
+        routerLink="/login"
+        routerLinkActive="active"
+        >LOGIN
+      </a>
+    </span>
+
+    <a
+      *ngIf="user.authStatus == 'AUTH'"
+      mat-button
+      routerLink="/dashboard"
+      routerLinkActive="active"
+      >DASHBOARD</a
+    >
+
+    <span *ngIf="user.authStatus == 'AUTH'">
+      <a
+        mat-raised-button
+        color="accent"
+        routerLink="/logout"
+        routerLinkActive="active"
+        >LOGOUT</a
+      >
+    </span>
   </div>
 </mat-toolbar>
 

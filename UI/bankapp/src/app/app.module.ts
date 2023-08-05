@@ -21,6 +21,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RequestInterceptor } from 'src/app/interceptors/request.interceptor';
 import { LogoutComponent } from './components/logout/logout.component';
+import { AccountComponent } from './components/account/account.component';
+import { BalanceComponent } from './components/balance/balance.component';
+import { LoansComponent } from './components/loans/loans.component';
+import { CardsComponent } from './components/cards/cards.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,10 @@ import { LogoutComponent } from './components/logout/logout.component';
     NoticesComponent,
     DashboardComponent,
     LogoutComponent,
+    AccountComponent,
+    BalanceComponent,
+    LoansComponent,
+    CardsComponent,
   ],
   imports: [
     BrowserModule,
