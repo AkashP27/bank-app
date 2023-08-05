@@ -20,30 +20,26 @@ import java.util.List;
 public class BankAuthenticationProvider implements AuthenticationProvider {
 
     @Autowired
-    CustomerRepository customerRepository;
+    private CustomerRepository customerRepository;
 
     @Autowired
-    PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String username = authentication.getName();
-        String password = authentication.getCredentials().toString();
-
+        String pwd = authentication.getCredentials().toString();
         List<Customer> customer = customerRepository.findByEmail(username);
-
-        if(customer.size() > 0) {
-            if(passwordEncoder.matches(password, customer.get(0).getPassword())) {
+        if (customer.size() > 0) {
+            if (passwordEncoder.matches(pwd, customer.get(0).getPassword())) {
                 List<GrantedAuthority> authorities = new ArrayList<>();
                 authorities.add(new SimpleGrantedAuthority(customer.get(0).getAuthorities()));
-                return new UsernamePasswordAuthenticationToken(username, password, authorities);
-
+                return new UsernamePasswordAuthenticationToken(username, pwd, authorities);
             } else {
-                throw new BadCredentialsException("Invalid Password");
+                throw new BadCredentialsException("Invalid password!");
             }
-
-        } else {
-            throw new BadCredentialsException("No user register with this details");
+        }else {
+            throw new BadCredentialsException("No user registered with this details!");
         }
     }
 
