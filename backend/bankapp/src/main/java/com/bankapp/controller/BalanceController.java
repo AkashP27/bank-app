@@ -26,7 +26,7 @@ public class BalanceController {
             List<AccountTransactions> accountTransactions = accountTransactionsRepository.findByCustomerIdOrderByTransactionDtDesc(id);
             if(accountTransactions != null) {
                 response = ResponseEntity
-                        .status(HttpStatus.FOUND)
+                        .status(HttpStatus.OK)
                         .body(accountTransactions);
             }
         } catch(Exception e) {

@@ -25,7 +25,7 @@ public class CardsController {
             List<Cards> cards = cardsRepository.findByCustomerId(id);
             if(cards!= null) {
                 response = ResponseEntity
-                        .status(HttpStatus.FOUND)
+                        .status(HttpStatus.OK)
                         .body(cards);
             }
         } catch(Exception e) {

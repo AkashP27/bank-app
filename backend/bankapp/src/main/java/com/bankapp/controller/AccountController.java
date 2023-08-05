@@ -24,7 +24,7 @@ public class AccountController {
             Accounts accounts = accountsRepository.findByCustomerId(id);
             if(accounts != null) {
                 response = ResponseEntity
-                        .status(HttpStatus.FOUND)
+                        .status(HttpStatus.OK)
                         .body(accounts);
             }
         } catch(Exception e) {

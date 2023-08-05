@@ -11,7 +11,7 @@ public class Accounts {
     private int customerId;
 
     @Id
-    @Column(name="account_name")
+    @Column(name="account_number")
     private long accountNumber;
 
     @Column(name="account_type")

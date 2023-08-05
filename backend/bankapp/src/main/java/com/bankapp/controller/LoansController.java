@@ -27,7 +27,7 @@ public class LoansController {
             List<Loans> loans = loanRepository.findByCustomerIdOrderByStartDtDesc(id);
             if(loans!= null) {
                 response = ResponseEntity
-                        .status(HttpStatus.FOUND)
+                        .status(HttpStatus.OK)
                         .body(loans);
             }
         } catch(Exception e) {
