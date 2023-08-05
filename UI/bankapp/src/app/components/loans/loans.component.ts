@@ -13,6 +13,16 @@ export class LoansComponent implements OnInit {
   loans = new Array();
   currOutstandingBalance: number = 0;
 
+  displayedColumns: string[] = [
+    'startDt',
+    'loanType',
+    'totalLoan',
+    'amountPaid',
+    'outstandingAmount',
+  ];
+
+  dataSource = this.loans;
+
   constructor(private dashboardService: DashboardService) {}
 
   ngOnInit(): void {

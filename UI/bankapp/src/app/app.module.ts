@@ -25,6 +25,7 @@ import { AccountComponent } from './components/account/account.component';
 import { BalanceComponent } from './components/balance/balance.component';
 import { LoansComponent } from './components/loans/loans.component';
 import { CardsComponent } from './components/cards/cards.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { CardsComponent } from './components/cards/cards.component';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
+    MatTableModule,
     ReactiveFormsModule,
   ],
   providers: [

@@ -1,89 +1,48 @@
 <bank-navbar></bank-navbar>
 
-<div class="site-section">
-  <div class="container">
-    <div class="row mb-4">
-      <div class="col-md-7">
-        <h2 class="heading-21921">Account Information</h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="mb-4">
-          <div class="form-group">
-            <label for="customerName">Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="customerName"
-              value="{{ user.name }}"
-              disabled
-            />
-          </div>
-          <div class="form-group">
-            <label for="customerEmail">Email</label>
-            <input
-              type="email"
-              class="form-control"
-              id="customerEmail"
-              value="{{ user.email }}"
-              disabled
-            />
-          </div>
-          <div class="form-group">
-            <label for="customerMobileNum">Mobile Number</label>
-            <input
-              type="text"
-              class="form-control"
-              id="customerMobileNum"
-              value="{{ user.mobileNumber }}"
-              disabled
-            />
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="mb-4">
-          <div class="form-group">
-            <label for="customerAccNo">Account Number</label>
-            <input
-              type="text"
-              class="form-control"
-              id="customerAccNo"
-              value="{{ account.accountNumber }}"
-              disabled
-            />
-          </div>
-          <div class="form-group">
-            <label for="customerAccountType">Account Type</label>
-            <input
-              type="email"
-              class="form-control"
-              id="customerAccountType"
-              value="{{ account.accountType }}"
-              disabled
-            />
-          </div>
-          <div class="form-group">
-            <label for="branchAddress">Branch Address</label>
-            <input
-              type="text"
-              class="form-control"
-              id="branchAddress"
-              value="{{ account.branchAddress }}"
-              disabled
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<mat-card>
+  <h1>Account Information</h1>
 
-<div class="row mb-5">
-  <div class="col">
-    <div class="">
-      <button class="btn btn-eazybank" routerLink="/dashboard">BACK</button>
-    </div>
-  </div>
-</div>
+  <mat-card-content>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input matInput value="{{ user.name }}" disabled />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput value="{{ user.email }}" disabled />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Mobile Number</mat-label>
+        <input matInput value="{{ user.mobileNumber }}" disabled />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Account Number</mat-label>
+        <input matInput value="{{ account.accountNumber }}" disabled />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Account Type</mat-label>
+        <input matInput value="{{ account.accountType }}" disabled />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Branch Address</mat-label>
+        <input matInput value="{{ account.branchAddress }}" disabled />
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        color="accent"
+        class="btn btn-eazybank"
+        routerLink="/dashboard"
+      >
+        BACK
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

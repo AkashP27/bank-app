@@ -11,6 +11,16 @@ export class BalanceComponent implements OnInit {
   user = new User();
   transactions = new Array();
 
+  displayedColumns: string[] = [
+    'transactionDt',
+    'transactionSummary',
+    'transactionAmt',
+    'customerNumber',
+    'closingBalance',
+  ];
+
+  dataSource = this.transactions;
+
   constructor(private dashboardService: DashboardService) {}
 
   ngOnInit(): void {
@@ -19,6 +29,7 @@ export class BalanceComponent implements OnInit {
       this.dashboardService
         .getAccountTransactions(this.user.id)
         .subscribe((data: any) => {
+          console.log(data);
           this.transactions = data.body;
         });
     }

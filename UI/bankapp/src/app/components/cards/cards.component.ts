@@ -13,13 +13,23 @@ export class CardsComponent implements OnInit {
   cards = new Array();
   currOutstandingAmt: number = 0;
 
+  displayedColumns: string[] = [
+    'cardNumber',
+    'cardType',
+    'totalLimit',
+    'amountUsed',
+    'availableAmount',
+  ];
+
+  dataSource = this.cards;
+
   constructor(private dashboardService: DashboardService) {}
 
   ngOnInit(): void {
     this.user = JSON.parse(sessionStorage.getItem('user') || '');
     if (this.user) {
-      this.dashboardService.getCards(this.user.id).subscribe((data) => {
-        this.cards = <any>data.body;
+      this.dashboardService.getCards(this.user.id).subscribe((data: any) => {
+        this.cards = data.body;
         this.cards.forEach(
           function (this: CardsComponent, card: Cards) {
             this.currOutstandingAmt =

@@ -1,64 +1,79 @@
 <bank-navbar></bank-navbar>
-
-<div>
-  <div class="welcome-msg pt-3 pb-4">
+<div class="container">
+  <div class="head">
     <h1>
-      Hi <span class="text-dark">{{ user.name }}</span
-      >, Welcome back
+      Hi {{ user.name }}
+      , Welcome back
     </h1>
-    <p>You logged in as {{ user.authorities }}</p>
+    <h2>You logged in as {{ user.authorities }}</h2>
   </div>
 
-  <div class="statistics">
-    <div class="row">
-      <div class="col-xl-6 pr-xl-2">
-        <div class="row">
-          <div class="col-sm-6 pr-sm-2 statistics-grid" routerLink="/myAccount">
-            <div class="card card_border border-primary-top p-4">
-              <i
-                style="font-size: 3em; color: #343a40"
-                class="fa fa-user-circle-o"
-              >
-              </i>
-              <h3 class="text-dark number">Account</h3>
-              <p class="stat-text">View account details</p>
-            </div>
-          </div>
-          <div class="col-sm-6 pl-sm-2 statistics-grid" routerLink="/myBalance">
-            <div class="card card_border border-primary-top p-4">
-              <i style="font-size: 3em; color: #343a40" class="fa fa-usd"> </i>
-              <h3 class="text-dark number">Balance</h3>
-              <p class="stat-text">View total available balance</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-6 pl-xl-2">
-        <div class="row">
-          <div class="col-sm-6 pr-sm-2 statistics-grid" routerLink="/myLoans">
-            <div class="card card_border border-primary-top p-4">
-              <i style="font-size: 3em; color: #343a40" class="fa fa-money">
-              </i>
-              <h3 class="text-dark number">Loans</h3>
-              <p class="stat-text">View Loan Details</p>
-            </div>
-          </div>
-          <div class="col-sm-6 pl-sm-2 statistics-grid">
-            <div
-              class="card card_border border-primary-top p-4"
-              routerLink="/myCards"
-            >
-              <i
-                style="font-size: 3em; color: #343a40"
-                class="fa fa-credit-card"
-              >
-              </i>
-              <h3 class="text-dark number">Cards</h3>
-              <p class="stat-text">View credit card details</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <mat-grid-list cols="4">
+    <mat-grid-tile colspan="1" rowspan="1">
+      <mat-card class="example-card" routerLink="/myAccount">
+        <mat-card-header>
+          <mat-card-title>Account</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>View account details</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button routerLink="/myAccount" color="accent">
+            My Account
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1">
+      <mat-card class="example-card" routerLink="/myBalance">
+        <mat-card-header>
+          <mat-card-title>Balance</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>View total available balance</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button routerLink="/myBalance" color="accent">
+            My Balance
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="1">
+      <mat-card class="example-card" routerLink="/myLoans">
+        <mat-card-header>
+          <mat-card-title>Loans</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>View Loan Details</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button routerLink="/myLoans" color="accent">
+            My Loans
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="1">
+      <mat-card class="example-card" routerLink="/myCards">
+        <mat-card-header>
+          <mat-card-title>Cards</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>View credit card details</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button routerLink="/myCards" color="accent">
+            My Cards
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>

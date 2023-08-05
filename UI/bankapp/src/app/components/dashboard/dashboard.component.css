@@ -1,3 +1,56 @@
+.head {
+  margin-top: 70px;
+  margin-bottom: 50px;
+}
+
+mat-card {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: start;
+  justify-content: start;
+  max-height: 800px;
+  border-radius: 15px;
+  justify-content: flex-start;
+  align-items: start;
+  background-color: rgb(202, 185, 185);
+  box-shadow: 3px 3px rgb(199, 191, 191), -1em 0 0.4em rgb(191, 181, 181);
+  cursor: pointer;
+}
+
+mat-card-header {
+  margin-bottom: 30px;
+}
+
+mat-card-title {
+  font-weight: 500;
+  font-size: 1.8em;
+}
+
+mat-card-content {
+  margin-bottom: 30px;
+}
+
+mat-card-content p {
+  font-weight: 400;
+  font-size: 1.2em;
+}
+
+.example-card {
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: flex-start;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/* gap */
+
 .sticky-header .main-content {
   padding-top: 40px;
 }

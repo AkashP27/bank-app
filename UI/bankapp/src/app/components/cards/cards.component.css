@@ -1,0 +1,24 @@
+.heading-21921 {
+  margin-top: 50px;
+  padding: 0;
+  line-height: 1;
+  font-weight: 900 !important;
+}
+
+table {
+  width: 100%;
+}
+
+table td,
+table th {
+  padding: 20px 20px;
+}
+
+.main-table {
+  width: 100%;
+}
+
+table td {
+  background-color: rgb(199, 176, 176);
+  color: black;
+}
