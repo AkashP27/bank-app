@@ -8,7 +8,7 @@ BankApp is a service-based bank application where the customers can get the vari
 
 ## Requirements
 
-For development, you will need JDK, Node.js, MySql and a node global package installed in your environment.
+For development, you will need JDK, Node.js, MySql, angular-cli and a node global package installed in your environment.
 
 ## Install
 
@@ -20,7 +20,7 @@ git clone https://github.com/AkashP27/bank-app.git
 
 #### Step 2: Run MySql scripts
 
-- Create a database and run scripts provided in src/main/resources/bank-app.sql
+- Create a database and run scripts provided in `src/main/resources/bank-app.sql`
 
 #### Step 3: Navigate to backend
 
