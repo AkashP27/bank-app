@@ -32,6 +32,11 @@ export class RequestInterceptor implements HttpInterceptor {
         'Authorization',
         'Basic ' + window.btoa(this.user.email + ':' + this.user.password)
       );
+    } else {
+      let token = sessionStorage.getItem('token');
+      if (token) {
+        httpHeaders = httpHeaders.append('Authorization', `Bearer ${token}`);
+      }
     }
 
     let xsrf = sessionStorage.getItem('XSRF-TOKEN');

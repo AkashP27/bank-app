@@ -30,18 +30,22 @@ export class LoginComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [
         Validators.required,
-        Validators.minLength(6),
+        Validators.minLength(5),
       ]),
     });
   }
 
   onSubmit() {
     this.loginService.login(this.loginForm.value).subscribe((data: any) => {
+      window.sessionStorage.setItem(
+        'token',
+        data.headers.get('Authorization')!
+      );
       this.userModel = data.body;
-      let xsrf = getCookie('XSRF-TOKEN')!;
-      window.sessionStorage.setItem('XSRF-TOKEN', xsrf);
       this.userModel.authStatus = 'AUTH';
       window.sessionStorage.setItem('user', JSON.stringify(this.userModel));
+      let xsrf = getCookie('XSRF-TOKEN')!;
+      window.sessionStorage.setItem('XSRF-TOKEN', xsrf);
       this.router.navigate(['dashboard']);
     });
   }
